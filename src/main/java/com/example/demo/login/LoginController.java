@@ -1,8 +1,12 @@
 package com.example.demo.login;
 
+import java.io.BufferedOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,10 +31,38 @@ public class LoginController {
 		Map<String, Object> keyMap=RSAUtils.genKeyPair();
 		String publicKey=RSAUtils.getPublicKey(keyMap);
 		String privateKey=RSAUtils.getPrivateKey(keyMap);
-		request.getSession().setAttribute("publicKey",publicKey);  
-		request.getSession().setAttribute("privateKey",privateKey);  
+		request.getSession().setAttribute("publicKey",publicKey);
+		request.getSession().setAttribute("privateKey",privateKey);
 		return mv;
 	}
+	@RequestMapping(value = "/pdf" ,method = RequestMethod.GET)
+	public ModelAndView pdf(Model model, HttpServletRequest request,HttpSession session) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/login/pdf");
+		/*String publicKey=RSANewUtil.createRSAKeys().get(RSANewUtil.PUBLIC_KEY_NAME);
+		String privateKey=RSANewUtil.createRSAKeys().get(RSANewUtil.PRIVATE_KEY_NAME);*/
+		Map<String, Object> keyMap=RSAUtils.genKeyPair();
+		String publicKey=RSAUtils.getPublicKey(keyMap);
+		String privateKey=RSAUtils.getPrivateKey(keyMap);
+		request.getSession().setAttribute("publicKey",publicKey);
+		request.getSession().setAttribute("privateKey",privateKey);
+		return mv;
+	}
+
+	@RequestMapping(value = "/ins" ,method = RequestMethod.GET)
+	public ModelAndView ins(Model model, HttpServletRequest request,HttpSession session) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/login/ins");
+		/*String publicKey=RSANewUtil.createRSAKeys().get(RSANewUtil.PUBLIC_KEY_NAME);
+		String privateKey=RSANewUtil.createRSAKeys().get(RSANewUtil.PRIVATE_KEY_NAME);*/
+		Map<String, Object> keyMap=RSAUtils.genKeyPair();
+		String publicKey=RSAUtils.getPublicKey(keyMap);
+		String privateKey=RSAUtils.getPrivateKey(keyMap);
+		request.getSession().setAttribute("publicKey",publicKey);
+		request.getSession().setAttribute("privateKey",privateKey);
+		return mv;
+	}
+
 	//这个不能用
 	@RequestMapping(value = "/loginSubmit" ,method = RequestMethod.POST)
 	public ModelAndView loginSubmit(@RequestBody Map<String,Object> map) throws Exception{
@@ -59,6 +91,37 @@ public class LoginController {
 		map_s.put("password", password);
 		map_s.put("token", JwtUtil.getToken(username));
 		return map_s;
+	}
+
+	//测试下载
+	@RequestMapping(value = "/testDown" ,method = RequestMethod.GET)
+	public void testDown(HttpServletResponse res) throws Exception {
+		String fileName="erer.pdf";
+		InputStream ins=LoginController.class.getClassLoader().getResourceAsStream(fileName);
+		/*byte[] buf=new byte[ins.available()];
+		ins.read(buf);
+		ins.close();;
+		ins.reset();
+		OutputStream ous=new BufferedOutputStream(res.getOutputStream());
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("application/pdf;charset=UTF-8");
+		res.setHeader("Content-disposition","attachment;filename="+fileName);
+		ous.write(buf);
+		ous.flush();
+		ous.close();*/
+		byte[] buffer = new byte[ins.available()];
+		ins.read(buffer);
+		ins.close();
+		// 清空response
+		res.reset();
+		// 设置response的Header
+		res.addHeader("Content-Disposition", "attachment;filename=" + new String(fileName.getBytes()));
+		OutputStream toClient = new BufferedOutputStream(res.getOutputStream());
+		res.setContentType("application/octet-stream");
+		toClient.write(buffer);
+		toClient.flush();
+		toClient.close();
+
 	}
 	@RequestMapping(value = "/test" ,method = RequestMethod.GET)
 	public ModelAndView test() throws Exception {

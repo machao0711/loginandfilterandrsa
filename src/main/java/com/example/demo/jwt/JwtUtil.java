@@ -18,7 +18,7 @@ public class JwtUtil {
 		claims.put("user_name", "admin");
 		claims.put("nick_name","DASDA121");
 		String str=Jwts.builder().setSubject(userName)
-				//.claim("roles", "user")
+				//.claim("roles", "user") 
 				.setClaims(claims)
 				.setIssuedAt(new Date())
 				.setExpiration(new Date(System.currentTimeMillis() + TOKEN_EXP)) /*过期时间*/

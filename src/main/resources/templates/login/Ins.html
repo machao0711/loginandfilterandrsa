@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>pdf文件预览</title>
+    <script type="text/javascript" th:src="@{/js/jquery/jquery-2.2.4.min.js}"></script>
+    <script type="text/javascript">
+        $(function () {
+            // var url = "https://public.creditchina.gov.cn/credit-check/pdf/download?companyName=河南九域腾龙信息工程有限公司&entityType=1&tyshxydm=91410103712650060D"; //获取pdf预览地址
+            // var curWwwPath=window.document.location.href;
+            // var pathName=window.document.location.pathname;
+            // var pos=curWwwPath.indexOf(pathName);
+            // var localhostPath=curWwwPath.substring(0,pos);
+            // window.open(localhostPath+"/pdf/web/viewer.html?file="+"/static/images/erer.pdf");
+
+            //var url = "https://public.creditchina.gov.cn/credit-check/pdf/download?companyName=河南九域腾龙信息工程有限公司&entityType=1&tyshxydm=91410103712650060D"; //获取pdf预览地址
+            var url = "http://localhost:8080/testDown"; //获取pdf预览地址
+            $("#pdfContainer").attr("src", "../static/js/pdf/web/viewer.html?file="+encodeURIComponent(url));
+            //window.open('../static/pdf/web/viewer.html?file=' +encodeURIComponent(url));
+        });
+    </script>
+</head>
+<body style="height:100%;width:80%">
+<div id="showPdf">
+    <iframe id="pdfContainer" src="" style="height:80%;width:80%" frameborder="0" ></iframe>
+</div>
+</body>
+</html>

@@ -23,7 +23,7 @@ public class WebConfig implements WebMvcConfigurer {
 		registry.addInterceptor(new JwtInterceptor())
 		//因为我们的静态文件都是放在static文件夹下面的  但是我们去访问这些静态资源的时候 在url中是不会通过/static请求的  而是直接通过/css 
 		//或者是  /js   访问 因此我们需要做的就是将这些拦截排除掉  和/static是没有关系的
-		.excludePathPatterns("/login","/loginSubmit","/loginFixSubmit","/error","/css/**", "/js/**","/image/**"); 
+		.excludePathPatterns("/login","/pdf","/ins","/loginSubmit","/loginFixSubmit","/error","/css/**", "/js/**","/image/**");
 	}
 
 	/**

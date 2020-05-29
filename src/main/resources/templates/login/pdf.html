@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>在线预览PDF文档</title>
+    <link rel="stylesheet" th:src="@{/js/bootstrap/css/bootstrap.css}">
+    <script type="text/javascript" th:src="@{/js/jquery/jquery-2.2.4.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/jquery/jquery.media.js}"></script>
+    <script type="text/javascript">
+       $(function() {
+            $('a.media').media({width:800, height:600});
+        });
+      /* $(document).ready(function(){
+           var url="static/images/erer.pdf";//这里就可以做url动态切换--主要是使用iframe
+           $("#pdf_page").attr("src",url);
+           $(".pdf").media();
+       });*/
+    </script>
+
+</head>
+<body>
+<!--<div class="pdf" >
+    <iframe  id ="pdf_page"  name ="pdf_page" style="width:1500px;height:640px"  >
+    </iframe>
+</div>-->
+<center>
+    <div class="panel panel-primary">
+        <div class="panel-heading" align="center">
+            <h2>预览pdf文件</h2>
+        </div>
+        <div class="panel-body">
+           <a class="media" href="/static/images/erer.pdf"></a>
+            <!-- https://public.creditchina.gov.cn/credit-check/pdf/download?companyName=河南九域腾龙信息工程有限公司&entityType=1&tyshxydm=91410103712650060D -->
+           <!-- <a class="media" href="https://public.creditchina.gov.cn/credit-check/pdf/download?companyName=河南九域腾龙信息工程有限公司&entityType=1&tyshxydm=91410103712650060D"></a>-->
+        </div>
+</center>
+
+</body>
+</html>

@@ -73,6 +73,13 @@ public class RSAUtils {
      */
     private static final int MAX_DECRYPT_BLOCK = 128;
 
+    public static void main(String[] args) throws Exception{
+        Map<String, Object> map=genKeyPair();
+        String privateKey=getPrivateKey(map);
+        String publicKey=getPublicKey(map);
+        System.out.println("私匙-->"+privateKey);
+        System.out.println("公匙--->"+publicKey);
+    }
     /** */
     /**
      * <p>

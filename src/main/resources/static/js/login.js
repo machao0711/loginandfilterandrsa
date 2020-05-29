@@ -1,6 +1,14 @@
 $(function(){
 
 });
+/*$("#testBut").on("click",function(){
+    alert(1);
+})*/
+function loadCity(){
+    alert('asasas');
+    //window.location.href="https://public.creditchina.gov.cn/credit-check/pdf/download?companyName=%E6%B2%B3%E5%8D%97%E4%B9%9D%E5%9F%9F%E8%85%BE%E9%BE%99%E4%BF%A1%E6%81%AF%E5%B7%A5%E7%A8%8B%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&entityType=1&tyshxydm=91410103712650060D"
+    window.location.href="pdf.html"
+}
 function getCookie(cookieName){ 
 	var cookieValue="";  
 	if (document.cookie && document.cookie != '') {   

@@ -2,7 +2,7 @@ package com.example.demo.RSA;
 
 
 import java.util.Map;
-import org.junit.Test;
+/*import org.junit.Test;*/
 
 public class RSATester {
 
@@ -22,11 +22,11 @@ public class RSATester {
     }
 
     public static void main(String[] args) throws Exception {
-        //testJavaRsa();
-    	testOne();
+        testJavaRsa();
+    	//testOne();
     }
 
-    @Test
+   /* @Test
     public void tests() throws Exception {
         String data = "hNYdT0/8wxljGvLQVPYUDeoWS217rmB5msKOljb6OBsOhdL1Domxt6Sy3BqdGqS3StGJuZuQ9wEFzGdyoTQ7IRiC0gRrkLuxvCUq8FANt1JpJCBqvzLdQD/ygCjkJMWWkMU4EFUW3xYkAsidqM8Zynhpk+mdja3789Ng4s68xJI=";
 
@@ -37,7 +37,7 @@ public class RSATester {
 
         System.out.println("\r\n\r\n" + r1 + "okb");
 
-    }
+    }*/
 
     static void testSign() throws Exception {
         System.err.println("私钥加密——公钥解密");
@@ -74,6 +74,7 @@ public class RSATester {
      */
 
     static void testJavaRsa() {
+
         String PUBLICKEY = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCcd+0zTY9Gn94iqkQJTlxYnEnCeFsLkk0a7hoAvi2B74VzDVV3xH0ZO9RkXvo1SgCB+uzbEWdrgQkzTqyjfTtgOguu3OnkVxIMJF34ibchTY0LWHGxq1m2gLGuVVqrlu1LtdV0X7xo/5zc8Mr+46veWb86kSpqe6rOAm69WWo5GwIDAQAB";
         String PRIVATEKEY = "MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAJx37TNNj0af3iKqRAlOXFicScJ4WwuSTRruGgC+LYHvhXMNVXfEfRk71GRe+jVKAIH67NsRZ2uBCTNOrKN9O2A6C67c6eRXEgwkXfiJtyFNjQtYcbGrWbaAsa5VWquW7Uu11XRfvGj/nNzwyv7jq95ZvzqRKmp7qs4Cbr1ZajkbAgMBAAECgYAHp349EkA+DjgJrhah9elilFKvZr/dcwy+koNHIgaL4rG+jRpvP3d3MowTVOocjUA1G5dWqCVNBwTyM5kSbl/nIxSCYwdUoDid4r0JbqkXkTTsIq3euHG8eiWr9rr3SDmwDojWoJEc4liVlfme8dQuMfgxe1QKq7wTrJwCKwbeMQJBAPwpknRPRK8W9hefbbtEu8mlbzUy+ER8Puq6dvS+lnWzJ8n2chJcHRYQFwWpjl4+SZuKeEcDmYmuQ7xuqEIayO0CQQCe2YeaxcU4uuDC45RAwCcMaNw1nDJuA+Gi47lXbroBXoeOiNZunViSZVUgDgrV/Ku6V54TaZIzZ21QFjf7mXEnAkEA7dZwMpAJonOvzfwrzbQ4wyrsx2q5zC68UT1qsdGJrJ48azutwC9tp7+pV0fj5nQtjS1/4Ms+aCQb84ET5rXIyQJAM0m45tgEHZT5DPO94kooUXFp6EVOYwcNyzILnZc6p0aGLhcwZPaYqmvdWEQwa3bxW3D+sPXdJou2V61U1f9s8QJALccvYwwWlCTq1iTmegYk9fOoc+isZKH+Z0YW70kFi94AYEO+utYwmXBEAqQ5VC/bywa1O71xdL4/RGCOSxBf2A==";
         String data = "你好啊，冯老师！s 223 1@324234234sfsfsf";

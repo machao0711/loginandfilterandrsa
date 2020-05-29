@@ -20,7 +20,7 @@ public class JwtInterceptor extends HandlerInterceptorAdapter {
 		System.out.println(basePath);
 		System.out.println(path);
 
-		String authHeader = request.getHeader("Authorization");
+		/*String authHeader = request.getHeader("Authorization");
 
 		if (authHeader == null || !authHeader.startsWith("Bearer:")) {
 
@@ -34,7 +34,7 @@ public class JwtInterceptor extends HandlerInterceptorAdapter {
 
 		Claims claims = JwtUtil.checkToken(token);
 
-		request.setAttribute("username",claims.getSubject());
+		request.setAttribute("username",claims.getSubject());*/
 
 		return true;
 
